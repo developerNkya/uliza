@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "7372149045",
+    "project_id": "uliza-7e8d5",
+    "storage_bucket": "uliza-7e8d5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7372149045:android:6695f1f88a024c0718bc7c",
+        "android_client_info": {
+          "package_name": "com.appsnipp.creativelogindesigns"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAU-N1cDm7mYwBaEB8QPbCAt6yMxRzfqoA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

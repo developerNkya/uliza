@@ -1,6 +1,8 @@
 package com.appsnipp.creativelogindesigns;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,12 +36,11 @@ public class LoginActivity extends AppCompatActivity {
 
         //Handle movement to register Page::
         navSignup.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-                Toast toast=Toast.makeText(getApplicationContext(),"MOVING TO SIGNUP",Toast.LENGTH_SHORT);
-                toast.setMargin(50,50);
-                toast.show();
+                // Start the SignUpActivity
+                Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
+                startActivity(intent);
             }
         });
 

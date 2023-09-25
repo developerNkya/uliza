@@ -34,11 +34,11 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="16dp"
         android:gravity="center_horizontal"
         android:letterSpacing="0.025"
-        android:text="GEEKSFORGEEKS"
+        android:text="ULIZA AI"
         android:textColor="@color/white"
         android:textSize="28sp"
         android:textStyle="bold"
@@ -72,69 +72,69 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent">-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-<!--            <TextView-->
-<!--                android:id="@+id/textView2"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="16dp"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:text="FIRSTNAME LASTNAME"-->
-<!--                android:textAllCaps="true"-->
-<!--                android:textColor="@color/green_500"-->
-<!--                android:textSize="16sp"-->
-<!--                android:textStyle="bold"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="FIRSTNAME LASTNAME"
+                android:textAllCaps="true"
+                android:textColor="@color/green_500"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/textView3"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="4dp"-->
-<!--                android:text="College Name"-->
-<!--                android:textColor="@android:color/black"-->
-<!--                android:textSize="14sp"-->
-<!--                app:layout_constraintStart_toStartOf="@+id/textView2"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/textView2" />-->
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="College Name"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-<!--&lt;!&ndash;            <com.google.android.material.button.MaterialButton&ndash;&gt;-->
-<!--&lt;!&ndash;                android:id="@+id/todoB"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_marginStart="16dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_marginBottom="8dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:text="TODO LIST"&ndash;&gt;-->
-<!--&lt;!&ndash;                app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                app:layout_constraintStart_toStartOf="parent" />&ndash;&gt;-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/todoB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="TODO LIST"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-<!--&lt;!&ndash;            <com.google.android.material.button.MaterialButton&ndash;&gt;-->
-<!--&lt;!&ndash;                android:id="@+id/editProfileB"&ndash;&gt;-->
-<!--&lt;!&ndash;                style="@style/Widget.MaterialComponents.Button.OutlinedButton"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_marginStart="8dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:text="EDIT PROFILE"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:textColor="@color/green_500"&ndash;&gt;-->
-<!--&lt;!&ndash;                app:layout_constraintBottom_toBottomOf="@+id/todoB"&ndash;&gt;-->
-<!--&lt;!&ndash;                app:layout_constraintStart_toEndOf="@+id/todoB" />&ndash;&gt;-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/editProfileB"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="EDIT PROFILE"
+                android:textColor="@color/green_500"
+                app:layout_constraintBottom_toBottomOf="@+id/todoB"
+                app:layout_constraintStart_toEndOf="@+id/todoB" />
 
-<!--            <ImageButton-->
-<!--                android:id="@+id/profileB"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginEnd="16dp"-->
-<!--                android:background="?attr/selectableItemBackground"-->
-<!--                android:padding="8dp"-->
-<!--                android:src="@drawable/profile"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
+            <ImageButton
+                android:id="@+id/profileB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp"
+                android:src="@drawable/profile"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
@@ -182,7 +182,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="CONTRIBUTE"
+                    android:text="CHAT"
                     android:textAllCaps="true"
                     android:textColor="@color/green_500"
                     android:textSize="14sp"

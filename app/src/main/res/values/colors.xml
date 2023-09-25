@@ -26,4 +26,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <!--  new login format  -->
+    <color name="purple">#8692f7</color>
 </resources>

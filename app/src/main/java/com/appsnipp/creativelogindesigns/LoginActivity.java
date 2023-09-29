@@ -148,7 +148,7 @@ public class LoginActivity extends AppCompatActivity {
                                         @Override
                                         public void run() {
                                             // Create and start the intent after the delay
-                                            Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+                                            Intent intent = new Intent(getApplicationContext(), navigation.class);
                                             startActivity(intent);
                                         }
                                     }, 4000); // 3000 milliseconds (3 seconds)

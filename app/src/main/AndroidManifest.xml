@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".chat_page"
+            android:name=".LoginActivity"
             android:exported="false"
             android:label="@string/title_activity_chat_page"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -24,7 +24,7 @@
             android:name=".Dashboard"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".chat_page"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

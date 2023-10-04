@@ -11,7 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.appsnipp.creativelogindesigns.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -35,8 +38,13 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         ChatMessage message = chatMessages.get(position);
         ChatViewHolder chatViewHolder = (ChatViewHolder) holder;
 
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        String currentTime = sdf.format(new Date());
+
         // Set your chat message data here based on the message object
         chatViewHolder.messageTextView.setText(message.getMessageText());
+        chatViewHolder.timeSent.setText(currentTime);
+
         // Set visibility of other views (e.g., profile image, image view) based on message type (sent/received).
         // You can use message.isSent() to determine if it's a sent message.
     }
@@ -48,10 +56,12 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public static class ChatViewHolder extends RecyclerView.ViewHolder {
         TextView messageTextView;
+        TextView timeSent;
 
         public ChatViewHolder(@NonNull View itemView) {
             super(itemView);
             messageTextView = itemView.findViewById(R.id.msgc);
+            timeSent = itemView.findViewById(R.id.timetv);
             // Initialize other views from your chat message layout here
         }
     }

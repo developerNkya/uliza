@@ -18,6 +18,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/profile_image"
+            android:layout_marginRight="2dp"
             app:civ_border_color="@null" />
 
         <TextView
@@ -25,22 +26,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/bg_receiver"
+            android:background="@drawable/rounded_rectangle"
             android:padding="15dp"
             android:text="His Message"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:visibility="gone" />
-
-        <ImageView
-            android:id="@+id/images"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/bg_receiver"
-            android:padding="15dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_images" />
+             />
 
         <TextView
             android:id="@+id/timetv"
@@ -48,6 +39,7 @@
             android:layout_height="wrap_content"
             android:text="02/01/1990 06:19PM"
             android:textColor="@color/black"
+            android:visibility="gone"
             android:textSize="12sp" />
     </LinearLayout>
 

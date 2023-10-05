@@ -20,6 +20,9 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final List<ChatMessage> chatMessages;
     private final Context context;
+    private static final int SENT_MESSAGE_TYPE = 1;
+    private static final int RECEIVED_MESSAGE_TYPE = 2;
+
 
     public ChatAdapter(Context context, List<ChatMessage> chatMessages) {
         this.context = context;
@@ -29,7 +32,13 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_chat, parent, false);
+        // Check the viewType to inflate the appropriate layout
+        View view;
+        if (viewType == SENT_MESSAGE_TYPE) {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_chat, parent, false);
+        } else {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_chat_left, parent, false);
+        }
         return new ChatViewHolder(view);
     }
 
@@ -47,12 +56,23 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         // Set visibility of other views (e.g., profile image, image view) based on message type (sent/received).
         // You can use message.isSent() to determine if it's a sent message.
+
+        //
+
     }
 
     @Override
     public int getItemCount() {
         return chatMessages.size();
     }
+
+    @Override
+    public int getItemViewType(int position) {
+        ChatMessage message = chatMessages.get(position);
+        // Return a different view type based on whether the message is sent or received
+        return message.isSent() ? SENT_MESSAGE_TYPE : RECEIVED_MESSAGE_TYPE;
+    }
+
 
     public static class ChatViewHolder extends RecyclerView.ViewHolder {
         TextView messageTextView;

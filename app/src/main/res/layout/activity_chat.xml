@@ -114,7 +114,15 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@null"
+            android:visibility="gone"
             android:src="@drawable/send_img" />
+
+        <ImageButton
+            android:id="@+id/mic_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@null"
+            android:src="@drawable/microphone" />
 
 
     </LinearLayout>

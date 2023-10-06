@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
@@ -20,8 +19,6 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
-
-import es.dmoral.toasty.Toasty;
 
 public class navigation extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

@@ -1,6 +1,7 @@
 package com.appsnipp.creativelogindesigns;
 
 import android.content.Context;
+import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +24,6 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final Context context;
     private static final int SENT_MESSAGE_TYPE = 1;
     private static final int RECEIVED_MESSAGE_TYPE = 2;
-
 
 
     public ChatAdapter(Context context, List<ChatMessage> chatMessages) {

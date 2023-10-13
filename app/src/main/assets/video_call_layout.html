@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Call Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Include the BotLibre SDK JavaScript -->
+    <script type="text/javascript" src="https://www.botlibre.com/scripts/sdk.js"></script>
+
+    <style>
+        /* Hide the element by targeting its class */
+        .avatar-avatarboxclose {
+            display: none;
+        }
+
+        body {
+          background-image: url('file:///android_asset/video_bg2.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+        }
+
+    </style>
+</head>
+<body>
+<!-- Container for the 3D model -->
+<div id="model-container"></div>
+
+<!-- JavaScript code for initializing the chatbot and model -->
+<script type="text/javascript">
+    SDK.applicationId = "6950436862324373990";
+    var sdk = new SDKConnection();
+    var web = new WebAvatar();
+    web.version = 8.5;
+    web.connection = sdk;
+    web.avatar = "12601502";
+    web.nativeVoice = false;
+    web.voice = "";
+    web.voiceMod = "";
+    web.width = "500";
+    web.createBox();
+    web.addMessage("", "", "", "");
+    web.processMessages();
+
+
+
+
+</script>
+</body>
+</html>

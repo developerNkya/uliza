@@ -22,6 +22,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +43,7 @@ public class chat_page extends AppCompatActivity {
     private ChatAdapter chatAdapter;
     private List<ChatMessage> chatMessages;
 
+    private ImageView videoIcon;
     private ImageButton sendSMSButton; // Use ImageButton instead of ImageView
     private ImageButton micButton; // Use ImageButton instead of ImageView
     private boolean isTyping = false; // Add a flag to track typing
@@ -73,6 +75,7 @@ public class chat_page extends AppCompatActivity {
         sendSMSButton = findViewById(R.id.sendmsg);
         micButton = findViewById(R.id.mic_button);
         message = findViewById(R.id.message);
+        videoIcon = findViewById(R.id.block);
 
         // Initially, show the mic button and hide the send SMS button
         micButton.setVisibility(View.VISIBLE);
@@ -114,6 +117,16 @@ public class chat_page extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 // Not used
+            }
+        });
+
+        videoIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //moving to video Page::
+                Intent intent = new Intent(getApplicationContext(), VideoCallPage.class);
+                startActivity(intent);
+
             }
         });
 

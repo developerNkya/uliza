@@ -1,5 +1,7 @@
 package com.appsnipp.creativelogindesigns;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,9 +11,11 @@ import android.os.Bundle;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
+import android.text.Html;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -33,6 +37,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -40,6 +45,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.appsnipp.creativelogindesigns.chatbotAPI.ChatbotAPI;
+
+import org.apache.commons.text.StringEscapeUtils;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -57,6 +64,9 @@ public class VideoCallPage extends AppCompatActivity {
     private static final int REQUEST_CODE_SPEECH_INPUT = 1;
 
     TextToSpeech t1;
+    private int charIndex = 0;
+    private Handler textAnimationHandler;
+    TextView cardboardText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +76,7 @@ public class VideoCallPage extends AppCompatActivity {
 
         webView = findViewById(R.id.webview);
         speakButton = findViewById(R.id.speak_button);
+        cardboardText = findViewById(R.id.cardboard_text);
 
         // Initialize WebView
         WebSettings webSettings = webView.getSettings();
@@ -96,53 +107,15 @@ public class VideoCallPage extends AppCompatActivity {
             public void onClick(View v) {
                 Toasty.success(VideoCallPage.this, "Start Speaking", Toast.LENGTH_LONG).show();
                 speakButton.setEnabled(false);
-
-                //call the google speech::
-
-                String userMessage = "once there was a boy who lived far away .Very far that people had to walk to go see him, ";
-//                startSpeechRecognition();
-                String javascriptCode = "SDK.canPlayVideo = true;\n" +
-                        "web.addMessage('" + userMessage + "', '', '', '');" +
-                        " web.processMessages();";
-
-// Create a Handler
-                Handler handler = new Handler();
-
-// Delayed execution of the t1.speak method after 2 seconds
-                // Calculate the total number of words in userMessage
-                String[] words = userMessage.split(" ");
-                int totalWords = words.length;
-
-// Calculate an estimated time for the robot to speak
-                int estimatedTimeInMillis = totalWords * 200; // Replace with your estimation logic
-
-// Delayed execution of t1.speak method after 2.1 seconds
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        t1.speak(userMessage, TextToSpeech.QUEUE_FLUSH, null);
-
-                        // Schedule JavaScript execution after estimatedTimeInMillis
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                // Execute your JavaScript code here
-                                String javascriptCode = "web.addMessage('', '', '', '');" +
-                                        " web.processMessages();" +
-                                        "SDK.canPlayAudio = null;";
-                                webView.evaluateJavascript(javascriptCode, null);
-
-                                speakButton.setChecked(false);
-                                speakButton.setEnabled(true);
-                            }
-                        }, estimatedTimeInMillis);
-                    }
-                }, 2100); // 2.1 seconds
+                //cleaning the cardboard::
+                cardboardText.setText("");
+                cardboardText.setVisibility(View.GONE);
+                //calling speech recognition::
+                startSpeechRecognition();
 
 
-
-                webView.evaluateJavascript(javascriptCode, null);
             }
+
         });
     }
 
@@ -176,35 +149,83 @@ public class VideoCallPage extends AppCompatActivity {
                 ArrayList<String> result = data.getStringArrayListExtra(
                         RecognizerIntent.EXTRA_RESULTS);
 
-//                Toasty.success(VideoCallPage.this,  Objects.requireNonNull(result).get(0), Toast.LENGTH_LONG).show();
                 String userMessage = Objects.requireNonNull(result).get(0);
-//                ChatbotAPI.sendMessageToChatbot(userMessage, new ChatbotAPI.ChatbotResponseListener() {
-//                    @Override
-//                    public void onChatbotResponse(String response) {
-//                        // Handle the chatbot's response here
-//                        Log.d("ChatBot Response", response);
-//                        String botResponse = response;
-//
-//                        // Update the typing status
-//                        t1.speak(botResponse, TextToSpeech.QUEUE_FLUSH, null);
-//
-//                        //inject words
-//                        String jsCode = "javascript:web.addMessage('" + botResponse + "', '', '', '');";
-//                        webView.evaluateJavascript(jsCode, null);
-//                    }
-//                });
+                ChatbotAPI.sendMessageToChatbot(userMessage, new ChatbotAPI.ChatbotResponseListener() {
+                    @Override
+                    public void onChatbotResponse(String response) {
+                        // Handle the chatbot's response here
+                        Log.d("ChatBot Response", response);
+                        String botResponse = Html.fromHtml(response).toString();
+                        Log.d(TAG, "onChatbotResponse: "+ botResponse);
+
+                       String  botResponse1 = botResponse.replace("'", "\\'").replace("\"", "\\\"");
+                        String javascriptCode = "SDK.canPlayVideo = true;\n" +
+                                "web.addMessage('" + botResponse1 + "', '', '', '');" +
+                                " web.processMessages();";
 
 
+                        String dynamicText = botResponse;
+                        cardboardText.setVisibility(View.VISIBLE);
+                        cardboardText.setText(dynamicText);
 
-                //inject words
-                String javascriptCode = "web.addMessage('" + userMessage + "', '', '', '');" +
-                        " web.processMessages();web.setVolume(0);";
-                webView.evaluateJavascript(javascriptCode, null);
-                t1.speak( userMessage, TextToSpeech.QUEUE_FLUSH, null);
+                        textAnimationHandler = new Handler(Looper.getMainLooper());
+                        startTextAnimation(botResponse);
+
+                        Handler handler = new Handler();
+
+                        // Delayed execution of the t1.speak method after 2 seconds
+                        // Calculate the total number of words in userMessage
+                        String[] words = botResponse.split(" ");
+                        int totalWords = words.length;
+
+// Calculate an estimated time for the robot to speak
+                        int estimatedTimeInMillis = totalWords * 320; // Replace with your estimation logic
+
+// Delayed execution of t1.speak method after 2.1 seconds
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                t1.speak(botResponse, TextToSpeech.QUEUE_FLUSH, null);
+
+                                // Schedule JavaScript execution after estimatedTimeInMillis
+                                handler.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        // Execute your JavaScript code here
+                                        String javascriptCode = "web.addMessage('', '', '', '');" +
+                                                " web.processMessages();" +
+                                                "SDK.canPlayAudio = null;";
+                                        webView.evaluateJavascript(javascriptCode, null);
+
+                                        speakButton.setChecked(false);
+                                        speakButton.setEnabled(true);
+                                    }
+                                }, estimatedTimeInMillis);
+                            }
+                        }, 2100); // 2.1 seconds
+                        webView.evaluateJavascript(javascriptCode, null);
+                    }
+
+                    private void startTextAnimation(String userMessage) {
+                        textAnimationHandler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (charIndex <= userMessage.length()) {
+                                    cardboardText.setText(userMessage.substring(0, charIndex));
+                                    charIndex++;
+                                    textAnimationHandler.postDelayed(this, 1); // Adjust the delay as needed
+                                }
+                            }
+                        }, 100); // Initial delay, you can adjust this as well
+                    }
+                });
 
             }
         }
     }
+
+
+
 
     @Override
     protected void onDestroy() {

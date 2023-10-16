@@ -1,0 +1,5 @@
+<!-- transparent_cardboard.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#88000000"/> <!-- Adjust the color and transparency as needed -->
+    <corners android:radius="8dp"/> <!-- Adjust the corner radius as needed -->
+</shape>

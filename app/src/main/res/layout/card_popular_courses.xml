@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:minHeight="150dp"
     app:cardElevation="10dp"
-    app:cardBackgroundColor="#FF402D"
+    app:cardBackgroundColor="#128C7E"
     app:cardCornerRadius="16dp"
     android:layout_marginRight="20dp"
     android:layout_marginTop="20dp"
@@ -24,8 +24,8 @@
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:cropToPadding="true"
-            android:maxWidth="100dp"
-            android:src="@drawable/android_developer" />
+            android:maxWidth="70dp"
+            android:src="@drawable/chat" />
 
         <TextView
             android:layout_width="wrap_content"

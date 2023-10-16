@@ -1,9 +1,14 @@
 package com.appsnipp.creativelogindesigns;
 
+
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 
 import androidx.annotation.NonNull;
@@ -25,6 +30,11 @@ public class navigation extends AppCompatActivity
 
     private BottomNavigationView bottomNavigationView;
 
+    // creating constant keys for shared preferences.
+    private static final String USERNAME_PREF_KEY = "username";
+
+    SharedPreferences sharedpreferences;
+    String email;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -59,6 +69,8 @@ public class navigation extends AppCompatActivity
         }
 
         setContentView(R.layout.activity_navigation);
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -81,6 +93,14 @@ public class navigation extends AppCompatActivity
         bottomNavigationView.setSelectedItemId(R.id.navigationHome);
 
         CardView cardView = findViewById(R.id.chat_card_view);
+
+        TextView welcomeText = findViewById(R.id.welcomeText);
+
+
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String username = sharedPreferences.getString(USERNAME_PREF_KEY, null);
+        welcomeText.setText("Welcome \n " + username);
 
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override

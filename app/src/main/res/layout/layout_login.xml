@@ -12,14 +12,18 @@
     tools:context=".LoginActivity">
 
     <androidx.cardview.widget.CardView
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         app:cardCornerRadius="30dp"
         app:cardElevation="20dp"
+       app:cardBackgroundColor="#FFFFFF"
+        app:cardUseCompatPadding="true"
         android:background="@drawable/custom_edittext">
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -28,6 +32,7 @@
 
 
             <TextView
+
                 android:id="@+id/loginText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -43,12 +48,14 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/ic_baseline_person_24"
+                android:drawableLeft="@drawable/user3"
                 android:drawablePadding="8dp"
                 android:hint="Username"
                 android:padding="8dp"
+                android:textColorHint="#4c4c4c"
                 android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+                android:textColorHighlight="@color/cardview_dark_background"
+                />
 
             <EditText
                 android:id="@+id/password"
@@ -56,9 +63,10 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/ic_baseline_lock_24"
+                android:drawableLeft="@drawable/lock2"
                 android:drawablePadding="8dp"
                 android:hint="Password"
+                android:textColorHint="#4c4c4c"
                 android:inputType="textPassword"
                 android:padding="8dp"
                 android:textColor="@color/black"

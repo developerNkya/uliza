@@ -132,7 +132,7 @@
                 <TextView
                     android:layout_alignParentTop="true"
                     android:layout_alignParentLeft="true"
-                    android:text="Frutorials"
+                    android:text="Tutorials"
                     style="@style/viewParent.headerText"/>
 
                 <TextView

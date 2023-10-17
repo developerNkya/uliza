@@ -6,10 +6,8 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.STORAGE" />
-
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
-
 
     <application
         android:allowBackup="true"
@@ -21,6 +19,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".intro"
+            android:exported="false" />
+        <activity
             android:name=".chat_page"
             android:exported="false" />
         <activity
@@ -29,7 +30,7 @@
             android:label="@string/title_activity_chat_page"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".navigation"
             android:exported="false"
             android:label="@string/title_activity_navigation"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -37,7 +38,7 @@
             android:name=".Dashboard"
             android:exported="false" />
         <activity
-            android:name=".navigation"
+            android:name=".LoginActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

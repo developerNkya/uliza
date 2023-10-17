@@ -45,10 +45,7 @@ public class navigation extends AppCompatActivity
             switch (item.getItemId()) {
                 case R.id.navigationMyProfile:
                     return true;
-                case R.id.navigationMyCourses:
-                    return true;
-                case R.id.navigationHome:
-                    return true;
+
                 case  R.id.navigationSearch:
                     return true;
                 case  R.id.navigationMenu:
@@ -90,7 +87,7 @@ public class navigation extends AppCompatActivity
         CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) bottomNavigationView.getLayoutParams();
         layoutParams.setBehavior(new BottomNavigationBehavior());
 
-        bottomNavigationView.setSelectedItemId(R.id.navigationHome);
+//        bottomNavigationView.setSelectedItemId(R.id.navigationHome);
 
         CardView cardView = findViewById(R.id.chat_card_view);
 
@@ -100,7 +97,7 @@ public class navigation extends AppCompatActivity
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String username = sharedPreferences.getString(USERNAME_PREF_KEY, null);
-        welcomeText.setText("Welcome \n " + username);
+        welcomeText.setText( username);
 
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override

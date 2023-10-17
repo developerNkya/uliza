@@ -29,7 +29,7 @@
             android:label="@string/title_activity_chat_page"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".navigation"
+            android:name=".LoginActivity"
             android:exported="false"
             android:label="@string/title_activity_navigation"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -37,7 +37,7 @@
             android:name=".Dashboard"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".navigation"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

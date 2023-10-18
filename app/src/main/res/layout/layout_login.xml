@@ -19,7 +19,7 @@
         app:cardCornerRadius="30dp"
         app:cardElevation="20dp"
        app:cardBackgroundColor="#FFFFFF"
-        app:cardUseCompatPadding="true"
+
         android:background="@drawable/custom_edittext">
 
         <LinearLayout

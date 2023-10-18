@@ -19,13 +19,13 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".LoginActivity"
+            android:name=".chat_page"
             android:exported="false"/>
         <activity
             android:name=".VideoCallPage"
             android:exported="false" />
         <activity
-            android:name=".chat_page"
+            android:name=".intro"
             android:exported="false"
             android:label="@string/title_activity_chat_page"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -38,7 +38,7 @@
             android:name=".Dashboard"
             android:exported="false" />
         <activity
-            android:name=".intro"
+            android:name=".LoginActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

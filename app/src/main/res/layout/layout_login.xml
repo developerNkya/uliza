@@ -52,7 +52,7 @@
                 android:drawablePadding="8dp"
                 android:hint="Username"
                 android:padding="8dp"
-                android:textColorHint="#4c4c4c"
+                android:textColorHint="@color/hint_color"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
                 />
@@ -66,7 +66,7 @@
                 android:drawableLeft="@drawable/lock2"
                 android:drawablePadding="8dp"
                 android:hint="Password"
-                android:textColorHint="#4c4c4c"
+                android:textColorHint="@color/hint_color"
                 android:inputType="textPassword"
                 android:padding="8dp"
                 android:textColor="@color/black"

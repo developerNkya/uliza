@@ -99,7 +99,9 @@
             android:layout_weight="1"
             android:background="@null"
             android:hint="Start Typing"
+            android:textColorHint="@color/hint_color"
             android:inputType="textCapSentences|textMultiLine"
+            android:textColor="#3B444B"
             android:padding="15dp" />
 
 <!--        <ImageButton-->
